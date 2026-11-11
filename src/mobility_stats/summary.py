@@ -6,7 +6,7 @@ def build_summary(rides):
     summary = {
         "ride_count": len(rides),
         "average_duration": average_duration(rides),
-        "rider_types": count_by_rider_type(rides)
+        "rider_types": count_by_rider_type(rides),
     }
     if rides:
         summary["busiest_start_station"] = busiest_start_station(rides)
@@ -21,4 +21,6 @@ def format_summary(summary):
     ride_count_line = f"Rides: {summary['ride_count']}"
     average_duration_line = f"Average duration: {summary['average_duration']:.1f} min"
     busiest_station_line = f"Busiest start: {summary['busiest_start_station']}"
-    return title + "\n" + ride_count_line  + "\n" + average_duration_line + "\n" + busiest_station_line
+    return (
+        title + "\n" + ride_count_line + "\n" + average_duration_line + "\n" + busiest_station_line
+    )
